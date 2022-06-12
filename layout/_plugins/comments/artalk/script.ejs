@@ -72,9 +72,18 @@
 
   function dark_artalk() {
     if(!document.querySelectorAll("#artalk_container")[0]) return;
-    volantis.artalk.then(ctx => {
-      ctx.setDarkMode(volantis.dark.mode === "dark")
-    })
+    
+    if(volantis.dark.mode == "dark") {
+      document.getElementById('artalk_container').className = 'artalk atk-dark-mode'; 
+    }else if(volantis.dark.mode == "light"){
+      document.getElementById('artalk_container').className = 'artalk'; 
+    }else{
+      return;
+    }
+
+//   volantis.artalk.then(ctx => {
+//      ctx.setDarkMode(volantis.dark.mode === "dark")
+//    })
   }
   volantis.dark.push(dark_artalk);
 </script>
